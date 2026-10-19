@@ -96,11 +96,12 @@ app.UseMiddleware<CorrelationIdMiddleware>();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseMiddleware<RequestLoggingMiddleware>();
 
+app.UseCors(ViteCorsPolicy);
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    app.UseCors(ViteCorsPolicy); // לפני Authentication, כדי ש-preflight לא יידחה ב-401
 }
 
 app.UseAuthentication();
