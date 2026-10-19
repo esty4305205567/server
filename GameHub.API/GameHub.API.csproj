@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>8705f6fe-87e2-4202-a64a-559061c61024</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.32" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.32">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="NLog.Web.AspNetCore" Version="6.2.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GameHub.Core\GameHub.Core.csproj" />
+    <ProjectReference Include="..\GameHub.Data\GameHub.Data.csproj" />
+    <ProjectReference Include="..\GameHub.Service\GameHub.Service.csproj" />
+  </ItemGroup>
+
+</Project>

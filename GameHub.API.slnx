@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="GameHub.API/GameHub.API.csproj" />
+  <Project Path="GameHub.Core/GameHub.Core.csproj" />
+  <Project Path="GameHub.Data/GameHub.Data.csproj" />
+  <Project Path="GameHub.Service/GameHub.Service.csproj" />
+  <Project Path="GameHub.Tests/GameHub.Tests.csproj" />
+</Solution>

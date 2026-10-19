@@ -1,0 +1,26 @@
+# Build output
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Logs
+logs/
+*.log
+
+# Secrets and environment files
+secrets.json
+.env
+.env.*
+
+# Node (for the React client)
+node_modules/
+dist/
+
+# Test results
+TestResults/
+*.png
+*.zip
