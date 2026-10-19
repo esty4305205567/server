@@ -8,7 +8,11 @@ using NLog.Web;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var port = Environment.GetEnvironmentVariable("PORT");
+if (!string.IsNullOrEmpty(port))
+{
+    builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+}
 // ---------- Logging (NLog) ----------
 // הקוד ממשיך להשתמש ב-ILogger<T> הרגיל. NLog מתחבר מתחת.
 builder.Logging.ClearProviders();
