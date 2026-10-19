@@ -70,16 +70,14 @@ builder.Services.AddSwaggerWithJwt();
 
 // ---------- CORS (Development בלבד, עבור שרת הפיתוח של Vite) ----------
 const string ViteCorsPolicy = "ViteDevClient";
-if (builder.Environment.IsDevelopment())
-{
-    builder.Services.AddCors(options =>
-        options.AddPolicy(ViteCorsPolicy, policy =>
-            policy.WithOrigins("http://localhost:5173")
-                  .AllowAnyHeader()
-                  .AllowAnyMethod()
-                  .WithExposedHeaders("X-Correlation-Id", "Location")));
-}
-
+var allowedOrigins = (builder.Configuration["Cors:AllowedOrigins"] ?? "http://localhost:5173")
+    .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+builder.Services.AddCors(options =>
+    options.AddPolicy(ViteCorsPolicy, policy =>
+        policy.WithOrigins(allowedOrigins)
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .WithExposedHeaders("X-Correlation-Id", "Location")));
 var app = builder.Build();
 
 // ---------- עלייה אוטומטית: Migrate + Seed ----------
